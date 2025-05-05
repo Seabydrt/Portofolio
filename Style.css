@@ -1,0 +1,190 @@
+/* ======== RESET ======== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #f8f9fa, #ffffff);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  /* ======== NAVIGATION ======== */
+  .nav-bar {
+    background-color: #2c3e50;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .nav-bar a {
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 12px;
+    transition: background 0.3s, color 0.3s;
+    border-radius: 8px;
+  }
+  
+  .nav-bar a:hover,
+  .nav-bar a.active {
+    background-color: #1abc9c;
+    color: #fff;
+  }
+  
+  /* ======== HEADER HERO ======== */
+  .hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(to right, #34495e, #2c3e50);
+    color: white;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out forwards;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #ecf0f1;
+    animation: fadeInUp 1s ease-out forwards;
+  }
+  
+  .hero .btn {
+    padding: 12px 25px;
+    background-color: #1abc9c;
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background 0.3s;
+    animation: fadeInUp 1.2s ease-out forwards;
+  }
+  
+  .hero .btn:hover {
+    background-color: #16a085;
+  }
+  
+  /* ======== CONTAINER ======== */
+  .container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px 0;
+  }
+  
+  /* ======== TITRES ======== */
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #2c3e50;
+  }
+  
+  /* ======== COMPÉTENCES ======== */
+  .skills-list li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+    font-size: 1.1rem;
+  }
+  
+  .skills-list li::before {
+    content: '✔';
+    color: #27ae60;
+    position: absolute;
+    left: 0;
+  }
+  
+  /* ======== PROJETS ======== */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .project-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+  }
+  
+  .project-card h3 {
+    color: #2980b9;
+    margin-bottom: 10px;
+  }
+  
+  /* ======== FOOTER ======== */
+  footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+    margin-top: 50px;
+  }
+  
+  /* ======== ANIMATIONS ======== */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ======== RESPONSIVE ======== */
+  @media (max-width: 600px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+  
+    .nav-bar {
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 10px;
+    }
+  
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
