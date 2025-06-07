@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galerie de Scripts – Sena Dev</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1e1e2f;
+      color: white;
+      margin: 0;
+    }
+
+    header {
+      background-color: #5865F2;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .filters button {
+      background-color: #7289da;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-weight: 600;
+    }
+
+    .filters button:hover,
+    .filters button.active {
+      background-color: #4e5cbf;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      padding: 40px;
+    }
+
+    @media (max-width: 1200px) {
+      .gallery {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      position: relative;
+      background-color: #2a2a40;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .thumbnail {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      display: block;
+      user-select: none;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      display: none;
+      background: black;
+    }
+
+    .content {
+      padding: 15px;
+    }
+
+    .content h3 {
+      margin: 10px 0;
+    }
+
+    .content p {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .content a {
+      color: #7289da;
+      text-decoration: none;
+    }
+
+    .vip-star {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: gold;
+      color: black;
+      padding: 5px 10px;
+      font-weight: bold;
+      font-size: 0.9em;
+      border-radius: 50px;
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.9);
+      z-index: 10;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #aaa;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    .back:hover {
+      text-decoration: underline;
+      color: #7289da;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Galerie de Scripts</h1>
+  </header>
+
+  <div class="filters">
+    <button class="active" onclick="filterCards('all', event)">Tous</button>
+    <button onclick="filterCards('gratuit', event)">Gratuit</button>
+    <button onclick="filterCards('vip', event)">VIP</button>
+  </div>
+
+  <section class="gallery" id="gallery">
+    <!-- Scripts initiaux -->
+
+    <!-- VIP -->
+    <div class="card" data-type="vip">
+      <span class="vip-star">⭐ VIP</span>
+      <img src="images/LosSantosAdmin-thumb.png" alt="Mapping LSPD Administration" class="thumbnail" />
+      <video src="videos/Los Santos Police Department - Police Administration Building.mp4" controls></video>
+      <div class="content">
+        <h3>Mapping LSPD Administration</h3>
+        <p>Menu exclusif réservé aux membres VIP.</p>
+        <a href="https://discord.gg/7Csu4H5bnb" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+
+    <!-- GRATUIT -->
+    <div class="card" data-type="gratuit">
+      <img src="images/cxDevTool-thumb.png" alt="CXdevtool" class="thumbnail" />
+      <video src="videos/cxDevTool  Codex - Store.mp4" controls></video>
+      <div class="content">
+        <h3>CXdevtool</h3>
+        <p>Un Outils Pour dev.</p>
+        <a href="https://discord.gg/7Csu4H5bnb" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+
+    <!-- VIP -->
+    <div class="card" data-type="vip">
+      <span class="vip-star">⭐ VIP</span>
+      <img src="images/DeedoAnimation-thumb.png" alt="Deedo Animation Pack V2" class="thumbnail" />
+      <video src="videos/VidéoAnimdeedo1.mp4" controls></video>
+      <div class="content">
+        <h3>Deedo Animation Pack V2</h3>
+        <p>HUD stylé réservé aux membres premium VIP.</p>
+        <a href="https://discord.gg/7Csu4H5bnb" target="_blank" rel="noopener">Discord</a>
+      </div>
+
+    </div>
+       <!-- GRATUIT -->
+    <div class="card" data-type="gratuit">
+      <img src="images/CxProperty.png" alt="CXdevtool" class="thumbnail" />
+      <video src="cxProperty  Codex - Store.mp4" controls></video>
+      <div class="content">
+        <h3>cxProperty</h3>
+        <p>Un Scrip Pour ajouter Des propriété.</p>
+        <a href="https://discord.gg/7Csu4H5bnb" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+
+        <!-- VIP -->
+    <div class="card" data-type="vip">
+      <span class="vip-star">⭐ VIP</span>
+      <img src="images/JobElec.png" alt="Deedo Animation Pack V2" class="thumbnail" />
+      <video src="videos/JobElec.mp4" controls></video>
+      <div class="content">
+        <h3>Job Electrician</h3>
+        <p>Un Job Electricien en Standalone</p>
+        <a href="https://discord.gg/7Csu4H5bnb" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </section>
+
+  <a href="index.html" class="back">⬅ Retour à l'accueil</a>
+
+  <footer>
+    &copy; 2025 Sena Dev. Tous droits réservés.
+  </footer>
+
+  <script>
+    // Filtre par type (all, gratuit, vip)
+    function filterCards(type, event) {
+      const buttons = document.querySelectorAll('.filters button');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (type === 'all' || card.dataset.type === type) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Quand on clique sur une miniature, cache l'image, affiche la vidéo et lance la lecture
+    function setupThumbnailClick(card) {
+      const img = card.querySelector('.thumbnail');
+      const video = card.querySelector('video');
+
+      if (img && video) {
+        img.addEventListener('click', () => {
+          img.style.display = 'none';
+          video.style.display = 'block';
+          video.play();
+        });
+      }
+    }
+
+    // Setup initial pour toutes les cartes existantes
+    document.querySelectorAll('.card').forEach(setupThumbnailClick);
+
+    // Fonction pour ajouter un nouveau script dans la galerie
+    // params:
+    // type = 'vip' ou 'gratuit'
+    // thumbnailSrc = chemin de la miniature (image)
+    // videoSrc = chemin de la vidéo .mp4
+    // title = titre du script
+    // description = description courte
+    // discordLink = lien discord (facultatif, sinon lien par défaut)
+    function ajouterScript(type, thumbnailSrc, videoSrc, title, description, discordLink) {
+      const gallery = document.getElementById('gallery');
+
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.dataset.type = type;
+
+      if(type === 'vip') {
+        const star = document.createElement('span');
+        star.className = 'vip-star';
+        star.textContent = '⭐ VIP';
+        card.appendChild(star);
+      }
+
+      const img = document.createElement('img');
+      img.src = thumbnailSrc;
+      img.alt = title;
+      img.className = 'thumbnail';
+
+      const video = document.createElement('video');
+      video.src = videoSrc;
+      video.controls = true;
+      video.style.display = 'none';
+
+      const content = document.createElement('div');
+      content.className = 'content';
+
+      const h3 = document.createElement('h3');
+      h3.textContent = title;
+
+      const p = document.createElement('p');
+      p.textContent = description;
+
+      const a = document.createElement('a');
+      a.href = discordLink || 'https://discord.gg/7Csu4H5bnb';
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = 'Discord';
+
+      content.appendChild(h3);
+      content.appendChild(p);
+      content.appendChild(a);
+
+      card.appendChild(img);
+      card.appendChild(video);
+      card.appendChild(content);
+
+      gallery.appendChild(card);
+
+      // Setup le clic sur la miniature pour ce nouveau script
+      setupThumbnailClick(card);
+    }
+  </script>
+
+</body>
+</html>
